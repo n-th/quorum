@@ -29,6 +29,7 @@ After the data aggregation, the next goal is to save the outputs using the loade
 ## Answers
 
 1. Discuss your solution’s time complexity. What trade offs did you make?
+
 Let's discuss the time complexity of each module:
 
 - Data Extraction: The time complexity of extracting data from CSV files using the csv module is typically O(n), where n is the number of rows in the CSV file. For each row, the fields are read and processed to create instances of the corresponding model class. This operation iterates through the rows of the CSV file, resulting in a linear time complexity.
@@ -39,7 +40,8 @@ Let's discuss the time complexity of each module:
 
 2. How would you change your solution to account for future columns that might be
 requested, such as “Bill Voted On Date” or “Co-Sponsors”?
-Lets discuss the change per module :
+
+Lets discuss the change per module:
 
 - Data Extraction: We need to modify the extract_bills method in the Extractor class to extract additional fields, such as "Bill Voted On Date" or "Co-Sponsors," from the CSV file.
 Update the Bill model class to include the new fields and modify the __init__ method accordingly.
@@ -67,6 +69,7 @@ list of legislators or bills that you should generate a CSV for?
 ### My Takes on the Evaluation Criteria
 
 1. Correctness - Is your output correct based on the provided data? How did you prove correctness?
+
 I added unit tests to check correctness of my code. You can check with the following commands:
 ```bash
 python3 -m unittest -v
@@ -80,7 +83,9 @@ You can also run `coverage html` to get a better visualization.
 I am not a fan of defining a percentage goal of coverage, because it is easy to create unuseful tests in order for the pipeline to pass. So I made tests for the most significants functions and feature, and got a 94% coverage.
 
 2. Structure/Readability - Is your code well organized and easy to read? Can it be extended reasonably if new requirements are given?
+
 I believe my code is well organized and easy to read, as the function and variables have easy to understand names, I also took and extra time to add documentation string for classes and functions, not because they were needed but as a way reminder of what the arguments represents. About extending the code reasonably, I made a modular maintanable code, with encapsulations for each step of the data handling pipeline.
 
 3. Proficiency with Language - Does your code make use of typical conventions in your language of choice?
-Yes, I followed typical Python conventions that follows the PEP 8 style guidelines, the code is structured into classes and methods, in an OOP principle. I didn't add any style guidelines in the repository but I have used my own vscode style configuration. Overall, I believe my code could be improved with logging and error handling.
+
+Yes, I followed typical Python conventions that follows the PEP 8 style guidelines, the code is structured into classes and methods, in an OOP principle. I didn't add any style guidelines in the repository but I have used my own vscode style configuration. Overall, I believe my code could be improved with logging and error handling. I also didn't use the Person model that was mentioned in the overview of the code instructions, since we had only legislators and I wasn't sure if we should consider a non legislator.
